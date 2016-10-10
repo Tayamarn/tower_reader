@@ -93,15 +93,11 @@ RESISTANCE =1.2
         #На прошлом запуске RESISTANCE=0.47
 
 def get_profit(power, cost):
-    if power == '' or cost == '':
-        return ''
-    return str(round(float(power) * POWER_PRICE - float(cost), 2)) + u' руб'
+    return round(power * POWER_PRICE - cost, 2)
 
 def render_template(template, **kwargs):
-    #print(kwargs)
     loader = jinja2.FileSystemLoader(os.path.join(os.path.dirname(os.path.realpath(__file__)), 'templates'))
     env = jinja2.Environment(loader=loader)
-    env.globals.update(get_profit=get_profit)
     template = env.get_template(template)
 
     with codecs.open(
@@ -197,16 +193,20 @@ def show():
         if comm == '0':
             render_template(PRICE_TEMPLATE, cost=POWER_PRICE)
         elif comm == '1':
-            rows = [{'place': '', 'name': v['name'], 'cost': round(v['cost'], 2), 'power': '', 'id': k} for k, v in TEAMS.iteritems()]
+            rows = [{'place': '', 'name': v['name'], 'cost': round(v['cost'], 2), 'power': '', 'id': k, 'profit_string': ''} for k, v in TEAMS.iteritems()]
             rows = sorted(rows, key=lambda me: int(me['id']), reverse=False)
             render_template(SHOW_TEMPLATE, rows=rows)
         elif comm == '2':
-            rows = [{'place': '', 'name': v['name'], 'cost': round(v['cost'], 2), 'power': round(v['power'], 2), 'id': k} for k, v in TEAMS.iteritems()]
+            rows = [{'place': '', 'name': v['name'], 'cost': round(v['cost'], 2), 'power': round(v['power'], 2), 'id': k, 'profit_string': ''} for k, v in TEAMS.iteritems()]
             rows = sorted(rows, key=lambda me: int(me['id']), reverse=False)
             render_template(SHOW_TEMPLATE, rows=rows)
         elif comm == '3':
-            rows = [{'place': '', 'name': v['name'], 'cost': round(v['cost'], 2), 'power': round(v['power'], 2), 'id': k} for k, v in TEAMS.iteritems()]
-            rows = sorted(rows, key=lambda me: get_profit(float(me['power']), float(me['cost'])), reverse=True)
+            rows = [{'place': '', 'name': v['name'], 'cost': round(v['cost'], 2), 'power': round(v['power'], 2), 'id': k, 'profit_string': ''} for k, v in TEAMS.iteritems()]
+            for row in rows:
+                row['profit'] = get_profit(row['power'], row['cost'])
+                row['profit_string'] = str(row['profit']) + u' руб'
+
+            rows = sorted(rows, key=lambda me: me['profit']), reverse=True)
             place = 1
             for row in rows:
                 row['place'] = place
