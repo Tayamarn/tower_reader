@@ -136,7 +136,6 @@ def read_data(team_id='dry', podstava=False):
     with open(PY_INTERFACE, 'w'):
         pass
     cpp = Process(target=run_cpp)
-    err = ''
     now = datetime.datetime.now().strftime('%d-%m-%y %X').replace(':', '-')
     try:
         with open(OUT_FILE.format(team_id, now), 'w') as outf:
@@ -176,12 +175,11 @@ def read_data(team_id='dry', podstava=False):
                         break
     except Exception as e:
         print('Fuck you')
-        err = e
+        print(traceback.print_exc())
     finally:
-        cpp.join()
         print('======================')
         print(power)
-        print(err)
+        cpp.join()
         # raw_input('<>')
         plot.plot(points, cumulative, TEAMS[team_id]['name'])
         return(power)
