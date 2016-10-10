@@ -206,7 +206,7 @@ def show():
                 row['profit'] = get_profit(row['power'], row['cost'])
                 row['profit_string'] = str(row['profit']) + u' руб'
 
-            rows = sorted(rows, key=lambda me: me['profit']), reverse=True)
+            rows = sorted(rows, key=lambda me: me['profit'], reverse=True)
             place = 1
             for row in rows:
                 row['place'] = place
