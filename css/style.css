@@ -1,0 +1,101 @@
+table {
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
+	border-radius: 6px;
+	border-collapse: collapse;
+	border: none;
+	#border-collapse: separate;
+	#border: 1px solid black;
+	width:100%;
+	margin-top: 1%;
+	font-family: Geneva, Arial, Helvetica, sans-serif;
+	/* Здесь настраиваем шрифт/расстояние между строками таблицы*/
+	line-height: 2.8em;
+	font-size: 21pt;
+}
+
+tr.main {
+	background-color: #fdd9b5;
+}
+
+td {
+    text-align: center;
+    vertical-align: middle;
+    padding: 10px;
+    border: none;
+	#border-collapse: collapse;
+	#border: 1px solid black;
+	/*font-size: 21pt;*/
+}
+
+th {
+    text-align: center;
+    vertical-align: middle;
+    padding: 10px;
+    border: none;
+	#border-collapse: collapse;
+	#border: 1px solid black;
+	line-height: 1.5em;
+	/*font-size: 21pt;*/
+}
+
+td.main {
+	background-color: #fdd9b5;
+}
+
+td.main.upper {
+	-moz-border-radius: 20px 20px 0px 0px;
+	-webkit-border-radius: 20px 20px 0px 0px;
+	border-radius: 20px 20px 0px 0px;
+	background-color: #fdd9b5;
+}
+
+td.main.down-right {
+	-moz-border-radius: 0px 0px 20px 0px;
+	-webkit-border-radius: 0px 0px 20px 0px;
+	border-radius: 0px 0px 20px 0px;
+	background-color: #fdd9b5;
+}
+
+td.main.down-left {
+	-moz-border-radius: 0px 0px 0px 20px;
+	-webkit-border-radius: 0px 0px 0px 20px;
+	border-radius: 0px 0px 0px 20px;
+	background-color: #fdd9b5;
+}
+
+td.main.right {
+	-moz-border-radius: 0px 20px 20px 0px;
+	-webkit-border-radius: 0px 20px 20px 0px;
+	border-radius: 0px 20px 20px 0px;
+	background-color: #fdd9b5;
+}
+
+td.main.left {
+	-moz-border-radius: 20px 0px 0px 20px;
+	-webkit-border-radius: 20px 0px 0px 20px;
+	border-radius: 20px 0px 0px 20px;
+	background-color: #fdd9b5;
+}
+
+td.header1 {
+	font-size: 24pt;
+	font-weight: bold;
+}
+
+td.header2 {
+	font-weight: bold;
+}
+
+td.header3 {
+	font-weight: bold;
+}
+
+td.teamname {
+	font-weight: bold;
+	font-size: 25pt;
+}
+
+td.num {
+	font-size: 28pt;
+}

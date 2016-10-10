@@ -1,0 +1,35 @@
+<html>
+<head>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" type="text/css" href="../css/style.css">
+  <script type="text/JavaScript">
+	function timedRefresh(timeoutPeriod) {
+		setTimeout("location.reload(true);",timeoutPeriod);
+	}
+
+	window.onload = timedRefresh(500);
+</script>
+</head>
+<body>
+<table>
+  <col style="width: 50%" />
+  <col />
+  <tr>
+    <th colspan="2"> {{ team_name }} </th>
+  </tr>
+   <tr>
+    <td> Стоимость установки </td>
+    <td> {{ cost }} руб </td>
+  </tr>
+  <tr>
+    <td> Выработанная мощность </td>
+    <td>  {% if power != '' %}{% if power > 0.01 %}{{ power|round(2) }} мкВт&middot;ч{% else %}0{% endif %}{% endif %}  </td>
+  </tr>
+
+  <tr>
+    <td> Время измерения </td>
+    <td> {% if time != '' %}{{ time }} с{% endif %} </td>
+  </tr>
+</table>
+</body>
+</html>

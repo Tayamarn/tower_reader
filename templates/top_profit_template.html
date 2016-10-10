@@ -1,0 +1,29 @@
+<html>
+<head>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" type="text/css" href="../css/style.css">
+  <script type="text/JavaScript">
+	function timedRefresh(timeoutPeriod) {
+		setTimeout("location.reload(true);",timeoutPeriod);
+	}
+
+	window.onload = timedRefresh(500);
+</script>
+</head>
+<body>
+<table>
+  <tr>
+	<th> Место </th>
+    <th> Команда </th>
+	<th> Полученная прибыль </th>
+  </tr>
+  {% for row in rows %}
+   <tr>
+   <td> {{ row.place }} </td>
+   <td> {{ row.name }} </td>
+    <td> {{ get_profit(row.power, row.cost)|round(2) }} руб </td>
+  </tr>
+  {% endfor %}
+</table>
+</body>
+</html>

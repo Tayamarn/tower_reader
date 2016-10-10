@@ -1,0 +1,20 @@
+<html>
+<head>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" type="text/css" href="../css/style.css">
+  <script type="text/JavaScript">
+	function timedRefresh(timeoutPeriod) {
+		setTimeout("location.reload(true);",timeoutPeriod);
+	}
+
+	window.onload = timedRefresh(500);
+</script>
+</head>
+<body style="font-size: 48pt; font-weight: bold; vertical-align: middle; text-align: center">
+<br><br><br><br><br>
+<div>
+    Стоимость одного мкВт·ч<br>
+    {{ cost }} руб
+</div>
+</body>
+</html>
