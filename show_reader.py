@@ -219,6 +219,8 @@ def show():
 
 
 def main(dry_run=False):
+    if not os.path.isdir('out'):
+        os.makedirs('out')
     if not dry_run:
         s = Process(target=_show)
         s.start()
@@ -270,4 +272,3 @@ def main(dry_run=False):
 if __name__ == '__main__':
     dry_run = 'dry-run' in sys.argv
     main(dry_run)
-
