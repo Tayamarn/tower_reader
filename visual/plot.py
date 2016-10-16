@@ -6,6 +6,7 @@ import datetime
 import os
 
 import matplotlib
+matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 from matplotlib import gridspec
 from matplotlib.backends.backend_pdf import PdfPages
@@ -14,8 +15,6 @@ from matplotlib.font_manager import FontProperties
 matplotlib.rc('font', **{'sans-serif' : 'Arial',
                            'family' : 'sans-serif'})
 
-
-matplotlib.use('Agg')
 
 PERIOD = 0.004
 
