@@ -114,7 +114,6 @@ def main():
                     val = float(val)
                     team_name = team_name.decode('utf8')
             except ValueError as e:
-                print(e)
                 pass
 
             # If you want a background image, replace this clear with blit'ing the
